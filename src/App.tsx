@@ -1,10 +1,10 @@
 import { css, Global } from '@emotion/react';
 import normalize from 'emotion-normalize';
 
-import { PageLayout } from './pages/PageLayout';
-import { Routes } from './pages/Routes';
-import { ReactQueryProvider } from './providers/ReactQueryProvider';
-import { GlobalPortal } from './utils/GlobalPortal';
+import { PageLayout } from 'pages/PageLayout';
+import { Routes } from 'pages/Routes';
+import { ReactQueryProvider } from 'providers/ReactQueryProvider';
+import { GlobalPortal } from 'utils/GlobalPortal';
 
 export default function App() {
   return (

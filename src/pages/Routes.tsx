@@ -1,15 +1,27 @@
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom';
 
 import { HomePage } from './Home';
+import { GlobalErrorBoundary } from 'utils/GlobalErrorBoundary';
 
 const router = createBrowserRouter([
   {
-    path: '/home',
-    element: <HomePage />,
+    path: '/',
+    element: (
+      <GlobalErrorBoundary>
+        <Outlet />
+      </GlobalErrorBoundary>
+    ),
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+    ],
   },
+
   {
     path: '*',
-    element: <Navigate to="/home" replace={true} />,
+    element: <Navigate to="/" replace={true} />,
   },
 ]);
 
