@@ -7,6 +7,8 @@ import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import unusedImports from 'eslint-plugin-unused-imports';
+import react from 'eslint-plugin-react';
+
 import path from 'path';
 
 const __dirname = path.resolve();
@@ -24,11 +26,12 @@ export default tseslint.config(
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
-        project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
+        project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json', './tsconfig.test.json'],
         tsconfigRootDir: __dirname,
       },
     },
     plugins: {
+      react,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
       'simple-import-sort': simpleImportSort,
@@ -159,6 +162,7 @@ export default tseslint.config(
       '@typescript-eslint/return-await': 'off',
       'no-underscore-dangle': ['error', { allow: ['_hasHydrated'] }],
       'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }],
+      'react/jsx-curly-brace-newline': ['error', { multiline: 'consistent', singleline: 'consistent' }],
     },
   }
 );
